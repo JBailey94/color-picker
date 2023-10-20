@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Colors -->
+    <style>
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+        }
+
+        .color-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            color: white;
+            font-family: Arial, sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .color-box:hover {
+            transform: scale(1.1);
+        }
+
+        .banner {
+            background-color: white;
+            text-align: center;
+            padding: 4px;
+            color: black;
+            border-radius: 5px;
+        }
+
+        #red {background-color: #FF0000;}
+        #orange {background-color: #FFA500;}
+        #yellow {background-color: #FFFF00;}
+        #green {background-color: #008000;}
+        #blue {background-color: #0000FF;}
+        #indigo {background-color: #4B0082;}
+        #violet {background-color: #EE82EE;}
+    </style>
+    <div class="color-grid">
+        <div id="red" class="color-box"><div class="banner">Red<br>#FF0000</div></div>
+        <div id="orange" class="color-box"><div class="banner">Orange<br>#FFA500</div></div>
+        <div id="yellow" class="color-box"><div class="banner">Yellow<br>#FFFF00</div></div>
+        <div id="green" class="color-box"><div class="banner">Green<br>#008000</div></div>
+        <div id="blue" class="color-box"><div class="banner">Blue<br>#0000FF</div></div>
+        <div id="indigo" class="color-box"><div class="banner">Indigo<br>#4B0082</div></div>
+        <div id="violet" class="color-box"><div class="banner">Violet<br>#EE82EE</div></div>
+        <div id="violet" class="color-box"><div class="banner">Violet<br>#EE82EE</div></div>
+        <div id="violet" class="color-box"><div class="banner">Violet<br>#EE82EE</div></div>
+    </div>
+
+    <br/>
+
+    <!-- Buttons -->
+    <style>
+        .btn {
+            width: 200px;
+            height: 100px;
+            margin: 20px;
+        }
+    </style>
+    <div>
+        <button type="button" class="btn btn-info">Primary</button>
+    </div>
+
+    <br/>
+
+    <!-- Tables -->
+    <style>
+        tr {
+            width: 20%;
+            margin: 20px;
+        }
+    </style>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>30</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Bob Johnson</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Alice Brown</td>
+            <td>35</td>
+          </tr>
+        </tbody>
+      </table>
+    
+
+    <!-- Copy on click -->
+    <script>
+      window.onload = function() {
+          var boxes = document.querySelectorAll('.color-box');
+          boxes.forEach(function(box) {
+              box.addEventListener('click', function() {
+                  var colorCode = this.textContent.split('#')[1];
+                  colorCode = "#" + colorCode;
+                  var tempInput = document.createElement('input');
+                  tempInput.style = 'position: absolute; left: -1000px; top: -1000px';
+                  tempInput.value = colorCode;
+                  document.body.appendChild(tempInput);
+                  tempInput.select();
+                  document.execCommand('copy');
+                  document.body.removeChild(tempInput);
+              });
+          });
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
