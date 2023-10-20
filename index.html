@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 5px;
+        }
+
+        .color-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            color: white;
+            font-family: Arial, sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .color-box:hover {
+            transform: scale(1.1);
+        }
+
+        .banner {
+            background-color: white;
+            text-align: center;
+            padding: 4px;
+            color: black;
+            border-radius: 5px;
+        }
+
+        #red {background-color: #FF0000;}
+        #orange {background-color: #FFA500;}
+        #yellow {background-color: #FFFF00;}
+        #green {background-color: #008000;}
+        #blue {background-color: #0000FF;}
+        #indigo {background-color: #4B0082;}
+        #violet {background-color: #EE82EE;}
+    </style>
+</head>
+<body>
+    <div class="color-grid">
+        <div id="red" class="color-box"><div class="banner">Red<br>#FF0000</div></div>
+        <div id="orange" class="color-box"><div class="banner">Orange<br>#FFA500</div></div>
+        <div id="yellow" class="color-box"><div class="banner">Yellow<br>#FFFF00</div></div>
+        <div id="green" class="color-box"><div class="banner">Green<br>#008000</div></div>
+        <div id="blue" class="color-box"><div class="banner">Blue<br>#0000FF</div></div>
+        <div id="indigo" class="color-box"><div class="banner">Indigo<br>#4B0082</div></div>
+        <div id="violet" class="color-box"><div class="banner">Violet<br>#EE82EE</div></div>
+        <div id="violet" class="color-box"><div class="banner">Violet<br>#EE82EE</div></div>
+        <div id="violet" class="color-box"><div class="banner">Violet<br>#EE82EE</div></div>
+    </div>
+
+    <!-- Copy on click -->
+    <script>
+      window.onload = function() {
+          var boxes = document.querySelectorAll('.color-box');
+          boxes.forEach(function(box) {
+              box.addEventListener('click', function() {
+                  var colorCode = this.textContent.split('#')[1];
+                  colorCode = "#" + colorCode;
+                  var tempInput = document.createElement('input');
+                  tempInput.style = 'position: absolute; left: -1000px; top: -1000px';
+                  tempInput.value = colorCode;
+                  document.body.appendChild(tempInput);
+                  tempInput.select();
+                  document.execCommand('copy');
+                  document.body.removeChild(tempInput);
+              });
+          });
+      };
+    </script>
+
+</body>
+</html>
